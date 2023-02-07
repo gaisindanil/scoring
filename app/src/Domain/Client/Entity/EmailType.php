@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\User\Entity;
+namespace App\Domain\Client\Entity;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
@@ -19,7 +19,7 @@ class EmailType extends StringType
 
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Email
     {
-        return !empty($value) ? new Email($value) : null;
+        return !empty($value) ? new Email((string)$value) : null;
     }
 
     public function getName(): string

@@ -2,14 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\User\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+namespace App\Domain\Client\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity()]
-#[ORM\Table(name: 'users')]
-class User
+#[ORM\Table(name: 'clients')]
+class Client
 {
     /**
      * @psalm-suppress PropertyNotSetInConstructor
@@ -47,7 +45,6 @@ class User
      * @param Operator $operator
      * @param string $phone
      * @param bool $consentPersonalData
-     * @param array $roles
      * @param Education $education
      */
     public function __construct(string $first_name, string $last_name, Email $email, Operator $operator, string $phone, bool $consentPersonalData, Education $education)
@@ -61,5 +58,26 @@ class User
         $this->education = $education;
     }
 
+
+    /**
+     * @param string $first_name
+     * @param string $last_name
+     * @param Email $email
+     * @param Operator $operator
+     * @param string $phone
+     * @param bool $consentPersonalData
+     * @param Education $education
+     * @return void
+     */
+    public function edit(string $first_name, string $last_name, Email $email, Operator $operator, string $phone, bool $consentPersonalData, Education $education): void
+    {
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->email = $email;
+        $this->operator = $operator;
+        $this->phone = $phone;
+        $this->consentPersonalData = $consentPersonalData;
+        $this->education = $education;
+    }
 
 }

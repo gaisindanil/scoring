@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\User\Entity;
+namespace App\Domain\Client\Entity;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
@@ -19,6 +19,7 @@ final class EducationType extends StringType
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Education
     {
         return !empty($value) ? new Education((string)$value) : null;
+
     }
 
     public function getName(): string

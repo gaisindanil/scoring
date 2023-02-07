@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Клиенты
+{% endblock %}
+
+{% block body %}
+
+    <table class="table align-middle table-bordered" style="border-collapse: collapse; border-spacing: 0 8px;width: 100%;">
+        <thead class="table-light">
+        <tr>
+            <th>№</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in pagination %}
+            <tr>
+                <th scope="row">
+                    {{ item.id }}
+                </th>
+
+               <th>
+                    {{ item.first_name }}
+                </th>
+
+                <th>
+                    {{ item.last_name }}
+                </th>
+
+
+                <th>
+                    {{ item.email }}
+                </th>
+
+
+                <td style="width: 100px">
+                    <a href="">
+                        Посмотреть
+                    </a>
+
+                    <a href="{{ path("client.edit", {"id": item.id}) }}">
+                        Редактировать
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <div id="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

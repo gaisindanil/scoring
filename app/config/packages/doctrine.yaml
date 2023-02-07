@@ -6,9 +6,9 @@ doctrine:
         # either here or in the DATABASE_URL env var (see .env file)
         #server_version: '15'
         types:
-            user_email_type: '\App\Domain\User\Entity\EmailType'
-            user_operator_type: '\App\Domain\User\Entity\OperatorType'
-            user_education_type: '\App\Domain\User\Entity\EducationType'
+            user_email_type: '\App\Domain\Client\Entity\EmailType'
+            user_operator_type: '\App\Domain\Client\Entity\OperatorType'
+            user_education_type: '\App\Domain\Client\Entity\EducationType'
 
 
 

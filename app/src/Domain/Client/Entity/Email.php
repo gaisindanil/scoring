@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\User\Entity;
+namespace App\Domain\Client\Entity;
 
 use InvalidArgumentException;
 use Webmozart\Assert\Assert;

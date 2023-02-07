@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\User\UseCase\Signup;
+namespace App\Domain\Client\UseCase\Create;
 
-use App\Domain\User\Entity\Education;
-use App\Domain\User\Entity\Operator;
+use App\Domain\Client\Entity\Education;
+use App\Domain\Client\Entity\Operator;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;

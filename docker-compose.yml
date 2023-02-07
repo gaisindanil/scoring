@@ -40,5 +40,7 @@ services:
     ports:
       - "40001:80"
     environment:
-      - PMA_HOST=mariadb
-      - PMA_PORT=3307
+      - PMA_ARBITRARY=1
+      - PMA_HOST=backend_db
+    links:
+      - backend_db

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\User\Entity;
+namespace App\Domain\Client\Entity;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
 
-final class UserRepository implements UserRepositoryInterface
+final class ClientRepository implements ClientRepositoryInterface
 {
     private EntityManagerInterface $entityManager;
     private \Doctrine\ORM\EntityRepository $repository;
@@ -15,22 +15,22 @@ final class UserRepository implements UserRepositoryInterface
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
-        $this->repository = $entityManager->getRepository(User::class);
+        $this->repository = $entityManager->getRepository(Client::class);
     }
 
-    public function add(User $user): void
+    public function add(Client $client): void
     {
-        $this->entityManager->persist($user);
+        $this->entityManager->persist($client);
     }
 
     /**
      * @throws EntityNotFoundException
      */
-    public function get(int $id): User
+    public function get(int $id): Client
     {
         $user = $this->repository->find($id);
-        if (!$user instanceof User) {
-            throw new EntityNotFoundException('User is not found.');
+        if (!$user instanceof Client) {
+            throw new EntityNotFoundException('Client is not found.');
         }
         return $user;
     }
