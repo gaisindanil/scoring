@@ -25,14 +25,14 @@ class User
     #[ORM\Column(type: 'string')]
     private string $last_name;
 
+    #[ORM\Column(type: 'user_email_type', unique: true)]
+    private Email $email;
+
     #[ORM\Column(type: 'user_operator_type')]
     private Operator $operator;
 
     #[ORM\Column(type: 'string')]
     private string $phone;
-
-    #[ORM\Column(length: 180, unique: true)]
-    private string $email;
 
     #[ORM\Column(type: 'boolean')]
     private bool $consentPersonalData;
@@ -43,7 +43,27 @@ class User
     #[ORM\Column(type: 'user_education_type')]
     private Education $education;
 
-
+    /**
+     * @param string $first_name
+     * @param string $last_name
+     * @param Email $email
+     * @param Operator $operator
+     * @param string $phone
+     * @param bool $consentPersonalData
+     * @param array $roles
+     * @param Education $education
+     */
+    public function __construct(string $first_name, string $last_name, Email $email, Operator $operator, string $phone, bool $consentPersonalData, array $roles, Education $education)
+    {
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->email = $email;
+        $this->operator = $operator;
+        $this->phone = $phone;
+        $this->consentPersonalData = $consentPersonalData;
+        $this->roles = $roles;
+        $this->education = $education;
+    }
 
 
 }
