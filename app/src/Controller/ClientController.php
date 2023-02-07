@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ClientController extends AbstractController
 {
-    private const PER_PAGE = 10;
+    private const PER_PAGE = 5;
 
     #[Route("/create", name: "client.create")]
     public function create(Request $request, Handler $handler): Response{
@@ -76,6 +76,20 @@ class ClientController extends AbstractController
 
         return  $this->render('app/client/edit.html.twig', [
             'form' => $form->createView()
+        ]);
+
+    }
+
+    #[Route("/create/{id<\d+>}/view", name: "client.view")]
+    public function view(Request $request, int $id, \App\Domain\Client\UseCase\Edit\Handler $handler, \App\Domain\Client\Query\FindOne\Fetcher $fetcher): Response{
+
+        $findClient = $fetcher->one($id);
+        if ($findClient === null) throw new NotFoundHttpException("404 page not found");
+
+
+
+        return  $this->render('app/client/view.html.twig', [
+            'client' => $findClient
         ]);
 
     }

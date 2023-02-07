@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Клиент #{{ client.id }}
+{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path("client.list") }}">Клиенты</a></li>
+            <li class="breadcrumb-item active" aria-current="page">    Клиент #{{ client.id }}</li>
+        </ol>
+    </nav>
+    <ul class="list-group">
+        <li class="list-group-item">Имя: {{ client.first_name }}</li>
+        <li class="list-group-item">Фамилия: {{ client.last_name }}</li>
+        <li class="list-group-item">Email: {{ client.email }}</li>
+        <li class="list-group-item">Телефон: {{ client.phone }}</li>
+
+    </ul>
+
+
+{% endblock %}

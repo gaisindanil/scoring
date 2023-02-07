@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block body %}
-
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Клиенты</li>
+        </ol>
+    </nav>
     <table class="table align-middle table-bordered" style="border-collapse: collapse; border-spacing: 0 8px;width: 100%;">
         <thead class="table-light">
         <tr>
@@ -38,7 +42,7 @@
 
 
                 <td style="width: 100px">
-                    <a href="">
+                    <a href="{{ path("client.view", {"id": item.id}) }}">
                         Посмотреть
                     </a>
 
