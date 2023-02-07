@@ -5,24 +5,33 @@
 {% endblock %}
 
 {% block body %}
+
     {{ form_start(form) }}
 
-    Имя
-    {{ form_widget(form.first_name) }}
+    <div class="mb-3">
+        <label for="example-text-input" class="form-label">Имя</label>
+
+        {{ form_widget(form.first_name) }}
     {{ form_errors(form.first_name) }}
+    </div>
 
-    Имя
-    {{ form_widget(form.last_name) }}
+    <div class="mb-3">
+        <label for="example-text-input" class="form-label">Фамилия</label>
+
+        {{ form_widget(form.last_name) }}
     {{ form_errors(form.last_name) }}
+    </div>
 
-    Имя
+    <div class="mb-3">
     {{ form_widget(form.email) }}
     {{ form_errors(form.email) }}
+    </div>
 
 
-    Имя
+    <div class="mb-3">
     {{ form_widget(form.operator) }}
     {{ form_errors(form.operator) }}
+    </div>
 
     {{ form_end(form) }}
 {% endblock %}
