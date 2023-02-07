@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Регистрация
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+
+    Имя
+    {{ form_widget(form.first_name) }}
+    {{ form_errors(form.first_name) }}
+
+    Имя
+    {{ form_widget(form.last_name) }}
+    {{ form_errors(form.last_name) }}
+
+    Имя
+    {{ form_widget(form.email) }}
+    {{ form_errors(form.email) }}
+
+
+    Имя
+    {{ form_widget(form.operator) }}
+    {{ form_errors(form.operator) }}
+
+    {{ form_end(form) }}
+{% endblock %}
