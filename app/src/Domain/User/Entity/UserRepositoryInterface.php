@@ -6,5 +6,8 @@ namespace App\Domain\User\Entity;
 
 interface UserRepositoryInterface
 {
+    public function add(User $user): void;
+
+    public function get(int $id): User;
 
 }

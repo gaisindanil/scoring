@@ -33,7 +33,7 @@ class HomeController extends AbstractController
             try {
                 $handler->handle($command);
                 $this->addFlash('success', 'Объект отредактирован');
-                return $this->redirectToRoute('admin.calibration.list');
+                return $this->redirectToRoute('signup');
             } catch (DomainException $exception) {
                 $this->addFlash('error', $exception->getMessage());
             }

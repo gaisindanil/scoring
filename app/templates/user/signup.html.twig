@@ -23,15 +23,40 @@
     </div>
 
     <div class="mb-3">
+        <label for="example-text-input" class="form-label">Телефон</label>
+
+        {{ form_widget(form.phone) }}
+        {{ form_errors(form.phone) }}
+    </div>
+
+    <div class="mb-3">
+        <label for="example-text-input" class="form-label">Оператор</label>
+
+        {{ form_widget(form.operator) }}
+        {{ form_errors(form.operator) }}
+    </div>
+
+
+    <div class="mb-3">
+        <label for="example-text-input" class="form-label">Электронная почта</label>
     {{ form_widget(form.email) }}
     {{ form_errors(form.email) }}
     </div>
 
 
     <div class="mb-3">
-    {{ form_widget(form.operator) }}
-    {{ form_errors(form.operator) }}
+        <label for="example-text-input" class="form-label">Образование</label>
+    {{ form_widget(form.education) }}
+    {{ form_errors(form.education) }}
     </div>
+
+    <div class="mb-3">
+    {{ form_widget(form.consent_personal_data) }}
+    </div>
+
+
+
+
 
     {{ form_end(form) }}
 {% endblock %}

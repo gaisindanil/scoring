@@ -37,9 +37,6 @@ class User
     #[ORM\Column(type: 'boolean')]
     private bool $consentPersonalData;
 
-    #[ORM\Column]
-    private array $roles = [];
-
     #[ORM\Column(type: 'user_education_type')]
     private Education $education;
 
@@ -53,7 +50,7 @@ class User
      * @param array $roles
      * @param Education $education
      */
-    public function __construct(string $first_name, string $last_name, Email $email, Operator $operator, string $phone, bool $consentPersonalData, array $roles, Education $education)
+    public function __construct(string $first_name, string $last_name, Email $email, Operator $operator, string $phone, bool $consentPersonalData, Education $education)
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -61,7 +58,6 @@ class User
         $this->operator = $operator;
         $this->phone = $phone;
         $this->consentPersonalData = $consentPersonalData;
-        $this->roles = $roles;
         $this->education = $education;
     }
 
