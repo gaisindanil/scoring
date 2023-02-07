@@ -1,0 +1,44 @@
+version: "3.4"
+
+services:
+  backend_nginx:
+    build:
+      context: ./docker/development/nginx
+    volumes:
+      - ./app:/app
+    restart: always
+    ports:
+      - "8098:80"
+  backend_db:
+    image: mariadb:10.3
+    volumes:
+      - .app:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3307:3307"
+  backend_php:
+    build:
+      context: ./docker/development/php
+      args:
+        TIMEZONE: ${TIMEZONE}
+    volumes:
+      - ./app:/app
+  backend_php_cli:
+    build:
+      context: ./docker/development/php-cli
+    volumes:
+      - ./app:/app
+  backend_phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    expose:
+      - "40001"
+    ports:
+      - "40001:80"
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_PORT=3307
