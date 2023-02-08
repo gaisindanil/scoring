@@ -9,3 +9,7 @@
 Рассчет скоринга по одному клиенту<br/>
 <code>make app-client-scoring id="2"</code>
 
+
+Запуск тестов(unit)<br/>
+<code>make unit-test</code>
+
