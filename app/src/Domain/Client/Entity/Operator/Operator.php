@@ -27,7 +27,7 @@ class Operator
     #[ORM\Column(type: 'client_operator_type')]
     private Constant $constant;
 
-    #[Orm\OneToMany(targetEntity: Client::class, mappedBy: 'operator', cascade: ['persist'])]
+    #[Orm\OneToMany(targetEntity: Client::class, mappedBy: 'operator')]
     private Collection $client;
 
     #[ORM\Column(type: 'integer')]

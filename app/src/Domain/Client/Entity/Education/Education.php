@@ -27,7 +27,7 @@ class Education
     #[ORM\Column(type: 'client_education_type')]
     private Constant $constant;
 
-    #[Orm\OneToMany(targetEntity: Client::class, mappedBy: 'education', cascade: ['persist'])]
+    #[Orm\OneToMany(targetEntity: Client::class, mappedBy: 'education')]
     private Collection $client;
 
     #[ORM\Column(type: 'integer')]

@@ -9,6 +9,7 @@ doctrine:
             user_email_type: '\App\Domain\Client\Entity\EmailType'
             client_education_type: '\App\Domain\Client\Entity\Education\ConstantType'
             client_operator_type: '\App\Domain\Client\Entity\Operator\ConstantType'
+            client_consent_personal_data_type: '\App\Domain\Client\Entity\ConsentPersonalDataType'
 
 
 

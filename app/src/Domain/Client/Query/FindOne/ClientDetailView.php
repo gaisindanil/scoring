@@ -12,7 +12,7 @@ class ClientDetailView
         public readonly string $last_name,
         public readonly string $phone,
         public readonly string $email,
-        public readonly int $consent_personal_data,
+        public readonly bool $consent_personal_data,
         public readonly int $education_id,
         public readonly int $operator_id,
         public readonly int $scoring

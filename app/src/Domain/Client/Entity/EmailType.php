@@ -26,4 +26,5 @@ class EmailType extends StringType
     {
         return self::NAME;
     }
+
 }

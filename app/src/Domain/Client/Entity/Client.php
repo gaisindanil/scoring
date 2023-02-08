@@ -39,8 +39,8 @@ class Client
     #[ORM\JoinColumn(name: 'education_id', referencedColumnName: 'id')]
     private Education $education;
 
-    #[ORM\Column(type: 'boolean')]
-    private bool $consentPersonalData;
+    #[ORM\Column(type: 'client_consent_personal_data_type')]
+    private ConsentPersonalData $consentPersonalData;
 
     #[ORM\Column(type: 'integer')]
     private int $scoring = 0;
@@ -50,11 +50,11 @@ class Client
      * @param string $last_name
      * @param Email $email
      * @param string $phone
-     * @param bool $consentPersonalData
+     * @param ConsentPersonalData $consentPersonalData
      * @param Education $education
      * @param Operator $operator
      */
-    public function __construct(string $first_name, string $last_name, Email $email, string $phone, bool $consentPersonalData, Education $education, Operator $operator)
+    public function __construct(string $first_name, string $last_name, Email $email, string $phone, ConsentPersonalData $consentPersonalData, Education $education, Operator $operator)
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -66,18 +66,17 @@ class Client
     }
 
 
-
     /**
      * @param string $first_name
      * @param string $last_name
      * @param Email $email
      * @param Operator $operator
      * @param string $phone
-     * @param bool $consentPersonalData
+     * @param ConsentPersonalData $consentPersonalData
      * @param Education $education
      * @return void
      */
-    public function edit(string $first_name, string $last_name, Email $email, Operator $operator, string $phone, bool $consentPersonalData, Education $education): void
+    public function edit(string $first_name, string $last_name, Email $email, Operator $operator, string $phone, ConsentPersonalData $consentPersonalData, Education $education): void
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -96,13 +95,6 @@ class Client
         $this->scoring = $scoring;
     }
 
-    /**
-     * @return bool
-     */
-    public function isConsentPersonalData(): bool
-    {
-        return $this->consentPersonalData;
-    }
 
     /**
      * @return Education
@@ -119,4 +111,21 @@ class Client
     {
         return $this->operator;
     }
+
+    /**
+     * @return ConsentPersonalData
+     */
+    public function getConsentPersonalData(): ConsentPersonalData
+    {
+        return $this->consentPersonalData;
+    }
+
+    /**
+     * @return Email
+     */
+    public function getEmail(): Email
+    {
+        return $this->email;
+    }
+
 }

@@ -31,6 +31,7 @@ class Fetcher
                 'phone',
                 'email',
                 'consent_personal_data',
+                'scoring'
             ])
             ->from('clients');
 

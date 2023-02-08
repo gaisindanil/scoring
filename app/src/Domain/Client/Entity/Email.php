@@ -11,6 +11,7 @@ class Email
 {
     private string $value;
 
+
     public function __construct(string $value)
     {
         Assert::notEmpty($value);
@@ -26,10 +27,6 @@ class Email
 
     public function isEqual(self $email): bool {
         return $this->getValue() === $email->getValue();
-    }
-
-    public function getGrade(): int{
-        return 1;
     }
 
 }
