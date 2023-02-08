@@ -53,6 +53,7 @@ class ClientTest extends TestCase
             ),
         );
 
+
         Assert::assertEquals($client->getFirstName(), $firstName);
         Assert::assertEquals($client->getLastName(), $lastName);
         Assert::assertEquals($client->getEmail(), $email);
@@ -61,4 +62,5 @@ class ClientTest extends TestCase
         Assert::assertEquals($client->getConsentPersonalData(), $consentPersonalData);
         Assert::assertEquals($client->getEducation(), $education);
     }
+
 }

@@ -47,9 +47,12 @@ final class ScoringCommand extends Command
             }
 
 
+
                 /** @var Client $client */
                 foreach ($findAllClients as $client) {
+
                     $scoringServices = new ScoringServices($client);
+
                     $scope = $scoringServices->calculation();
                     $output->writeln($client->getFirstName() . ' ' . $client->getLastName() . ' - оценка: ' . $scope);
                     $client->saveScoring($scope);
