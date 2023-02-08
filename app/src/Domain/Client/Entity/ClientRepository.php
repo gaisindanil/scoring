@@ -35,4 +35,8 @@ final class ClientRepository implements ClientRepositoryInterface
         return $user;
     }
 
+    public function all(): array
+    {
+        return $this->repository->findAll();
+    }
 }

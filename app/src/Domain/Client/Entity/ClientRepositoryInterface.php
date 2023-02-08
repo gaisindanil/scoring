@@ -10,4 +10,5 @@ interface ClientRepositoryInterface
 
     public function get(int $id): Client;
 
+    public function all(): array;
 }
