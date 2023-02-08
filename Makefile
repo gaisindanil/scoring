@@ -15,3 +15,12 @@ migrations-diff:
 
 migrations-migrate:
 	docker-compose run --rm backend_php_cli php bin/console doctrine:migrations:migrate
+
+fixtures-education:
+	docker-compose run --rm backend_php_cli php bin/console doctrine:fixtures:load --append --group=education
+
+fixtures-operator:
+	docker-compose run --rm backend_php_cli php bin/console doctrine:fixtures:load --append --group=operator
+
+app-client-scoring:
+	docker-compose run --rm backend_php_cli php bin/console app:client:scoring $(id)
