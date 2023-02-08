@@ -4,7 +4,7 @@ namespace App\Console;
 
 use App\Domain\Client\Entity\Client;
 use App\Domain\Client\Entity\ClientRepositoryInterface;
-use App\Domain\Client\UseCase\Services\ScoringServices;
+use App\Domain\Client\Services\ScoringServices;
 use App\Domain\Flusher;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Client\UseCase\Services;
+namespace App\Domain\Client\Services;
 
 use App\Domain\Client\Entity\Client;
 use App\Domain\Client\Entity\Email;

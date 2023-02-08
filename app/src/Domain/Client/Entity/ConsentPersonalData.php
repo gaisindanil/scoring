@@ -13,7 +13,8 @@ final class ConsentPersonalData
 
     private bool $value;
 
-    /** @var array|string[] */
+
+    /** @var array|int[]  */
     private static array $grades = [
         self::true => 4,
         self::false => 0

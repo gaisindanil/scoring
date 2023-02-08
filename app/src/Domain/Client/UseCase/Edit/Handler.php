@@ -9,7 +9,7 @@ use App\Domain\Client\Entity\ConsentPersonalData;
 use App\Domain\Client\Entity\Education\EducationRepositoryInterface;
 use App\Domain\Client\Entity\Email;
 use App\Domain\Client\Entity\Operator\OperatorRepositoryInterface;
-use App\Domain\Client\UseCase\Services\ScoringServices;
+use App\Domain\Client\Services\ScoringServices;
 use App\Domain\Flusher;
 
 
