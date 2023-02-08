@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Domain\Client\Entity\Education;
 
 use App\Domain\Client\Entity\Client;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity()]
@@ -25,8 +27,8 @@ final class Education
     #[ORM\Column(type: 'client_education_type')]
     private Constant $constant;
 
-    #[Orm\OneToMany(targetEntity: Client::class, mappedBy: 'client', cascade: ['persist'])]
-    private Client $client;
+    #[Orm\OneToMany(targetEntity: Client::class, mappedBy: 'education', cascade: ['persist'])]
+    private Collection $client;
 
     #[ORM\Column(type: 'integer')]
     private int $grade;
@@ -41,6 +43,7 @@ final class Education
         $this->name = $name;
         $this->constant = $constant;
         $this->grade = $grade;
+        $this->client = new ArrayCollection();
     }
 
     /**

@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Client\UseCase\Create;
 
-use App\Domain\Client\Entity\Education\Education;
-
-use App\Domain\Client\Entity\Operator\Operator;
 use App\Domain\Client\Query\Operator\Common\Fetcher;
 use App\Domain\Client\Query\Operator\Common\Query;
 use Symfony\Component\Form\AbstractType;

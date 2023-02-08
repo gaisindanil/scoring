@@ -36,14 +36,14 @@ class Client
     private Operator $operator;
 
     #[ORM\ManyToOne(targetEntity: Education::class)]
-    #[ORM\JoinColumn(name: 'client_id', referencedColumnName: 'id')]
+    #[ORM\JoinColumn(name: 'education_id', referencedColumnName: 'id')]
     private Education $education;
 
     #[ORM\Column(type: 'boolean')]
     private bool $consentPersonalData;
 
     #[ORM\Column(type: 'integer')]
-    private int $scoring;
+    private int $scoring = 0;
 
     /**
      * @param string $first_name
@@ -64,6 +64,7 @@ class Client
         $this->education = $education;
         $this->operator = $operator;
     }
+
 
 
     /**
