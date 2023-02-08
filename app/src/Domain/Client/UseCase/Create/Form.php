@@ -43,6 +43,7 @@ final class Form extends AbstractType
             'choices' => array_flip($education),
         ])->add('consent_personal_data', CheckboxType::class, [
                 'label' => 'Я даю согласие на обработку моих личных данных',
+            'required' => false,
         ])->add('send', SubmitType::class, ['label' => 'Отправить']);
     }
 

@@ -23,10 +23,11 @@ final class ScoringCommand extends Command
     private ScoringServices $scoringServices;
 
     public function __construct(
-        Flusher $flusher,
+        Flusher                   $flusher,
         ClientRepositoryInterface $clientRepository,
-        ScoringServices $scoringServices
-    ) {
+        ScoringServices           $scoringServices
+    )
+    {
         $this->flusher = $flusher;
         $this->clientRepository = $clientRepository;
         $this->scoringServices = $scoringServices;
@@ -41,20 +42,24 @@ final class ScoringCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         try {
+            /** @var int $id */
             if ($id = null !== $input->getArgument('id')) {
                 $findAllClients = $this->clientRepository->get($id);
             } else {
                 $findAllClients = $this->clientRepository->all();
             }
 
-            /** @var Client $client */
-            foreach ($findAllClients as $client) {
-                $scope = $this->scoringServices->calculation($client);
-                $output->writeln($client->getFirstName().' '.$client->getLastName().' - оценка: '.$scope);
-                $client->saveScoring($scope);
-            }
 
-            $this->flusher->flush();
+                /** @var Client $client */
+                foreach ($findAllClients as $client) {
+                    $scope = $this->scoringServices->calculation($client);
+                    $output->writeln($client->getFirstName() . ' ' . $client->getLastName() . ' - оценка: ' . $scope);
+                    $client->saveScoring($scope);
+                }
+
+
+                $this->flusher->flush();
+
 
             return Command::SUCCESS;
         } catch (\Exception $exception) {

@@ -39,7 +39,7 @@ class Fetcher
         ->executeQuery();
 
         /**
-         * @var array{id: int, first_name: string, last_name: string, phone: string, email: string, consent_personal_data: bool, education_id: int, operator_id: int, scoring: int}|false $row
+         * @var array{id: int, first_name: string, last_name: string, phone: string, email: string, consent_personal_data: int, education_id: int, operator_id: int, scoring: int}|false $row
          */
         $row = $qb->fetchAssociative();
         if (false === $row) {

@@ -47,7 +47,7 @@ class Handler
             new Email($command->email),
             $operator,
             $command->phone,
-            new ConsentPersonalData($command->consent_personal_data),
+            new ConsentPersonalData((int)$command->consent_personal_data),
             $education
         );
 

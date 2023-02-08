@@ -18,7 +18,7 @@ final class ConsentPersonalDataType extends StringType
 
     public function convertToPHPValue($value, AbstractPlatform $platform): ?ConsentPersonalData
     {
-        return !empty($value) ? new ConsentPersonalData((bool) $value) : null;
+        return !empty($value) ? new ConsentPersonalData((int) $value) : null;
     }
 
     public function getName(): string

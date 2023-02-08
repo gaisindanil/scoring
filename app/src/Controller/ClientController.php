@@ -58,7 +58,7 @@ class ClientController extends AbstractController
             $findClient->email,
             $findClient->operator_id,
             $findClient->education_id,
-            (bool) $findClient->consent_personal_data,
+            $findClient->consent_personal_data,
         );
 
         $form = $this->createForm(\App\Domain\Client\UseCase\Edit\Form::class, $command);

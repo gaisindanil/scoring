@@ -8,18 +8,18 @@ use Webmozart\Assert\Assert;
 
 final class ConsentPersonalData
 {
-    private const true = true;
-    private const false = false;
+    private const true = 1;
+    private const false = 0;
 
-    private bool $value;
+    private int $value;
 
-    /** @var array|int[] */
+
     private static array $grades = [
         self::true => 4,
         self::false => 0,
     ];
 
-    public function __construct(bool $value)
+    public function __construct(int $value)
     {
         Assert::oneOf($value, [
             self::true,
@@ -33,7 +33,7 @@ final class ConsentPersonalData
         return $this->getValue() === $status->getValue();
     }
 
-    public function getValue(): bool
+    public function getValue(): int
     {
         return $this->value;
     }
