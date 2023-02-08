@@ -16,8 +16,6 @@ class ClientDetailView
         public readonly int $education_id,
         public readonly int $operator_id,
         public readonly int $scoring
-    )
-    {
+    ) {
     }
-
 }

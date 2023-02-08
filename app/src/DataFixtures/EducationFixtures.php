@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
-
 use App\Domain\Client\Entity\Education\Constant;
 use App\Domain\Client\Entity\Education\Education;
 use App\Domain\Client\Entity\Education\EducationRepositoryInterface;
@@ -15,7 +14,6 @@ use Doctrine\Persistence\ObjectManager;
 final class EducationFixtures extends Fixture implements FixtureGroupInterface
 {
     private EducationRepositoryInterface $repository;
-
 
     public function __construct(EducationRepositoryInterface $repository)
     {
@@ -28,7 +26,6 @@ final class EducationFixtures extends Fixture implements FixtureGroupInterface
             'Среднее образование',
             Constant::average(),
             5
-
         );
         $this->repository->add($education);
 
@@ -46,7 +43,6 @@ final class EducationFixtures extends Fixture implements FixtureGroupInterface
         );
         $this->repository->add($education);
         $manager->flush();
-
     }
 
     public static function getGroups(): array

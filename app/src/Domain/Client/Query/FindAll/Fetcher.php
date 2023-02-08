@@ -8,10 +8,8 @@ use Doctrine\DBAL\Connection;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
-
 class Fetcher
 {
-
     private Connection $connection;
     private PaginatorInterface $paginator;
 
@@ -31,7 +29,7 @@ class Fetcher
                 'phone',
                 'email',
                 'consent_personal_data',
-                'scoring'
+                'scoring',
             ])
             ->from('clients');
 

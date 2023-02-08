@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Client\UseCase\Create;
 
-
 use App\Domain\Client\Entity\Client;
 use App\Domain\Client\Entity\ClientRepositoryInterface;
 use App\Domain\Client\Entity\ConsentPersonalData;
@@ -16,7 +15,6 @@ use App\Domain\Flusher;
 
 class Handler
 {
-
     private Flusher $flusher;
     private ClientRepositoryInterface $clientRepository;
     private EducationRepositoryInterface $educationRepository;
@@ -29,8 +27,7 @@ class Handler
         EducationRepositoryInterface $educationRepository,
         OperatorRepositoryInterface $operatorRepository,
         ScoringServices $scoringServices
-    )
-    {
+    ) {
         $this->flusher = $flusher;
         $this->clientRepository = $clientRepository;
         $this->educationRepository = $educationRepository;
@@ -38,10 +35,10 @@ class Handler
         $this->scoringServices = $scoringServices;
     }
 
-    public function handle(Command $command): void{
+    public function handle(Command $command): void
+    {
         $operator = $this->operatorRepository->get($command->operator);
         $education = $this->educationRepository->get($command->education);
-
 
         $client = new Client(
             $command->first_name,
@@ -55,12 +52,8 @@ class Handler
 
         $client->saveScoring($this->scoringServices->calculation($client));
 
-
-
         $this->clientRepository->add($client);
 
         $this->flusher->flush();
-
-
     }
 }

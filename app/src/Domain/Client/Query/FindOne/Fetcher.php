@@ -6,12 +6,9 @@ namespace App\Domain\Client\Query\FindOne;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
-use Knp\Component\Pager\PaginatorInterface;
-
 
 class Fetcher
 {
-
     private Connection $connection;
 
     public function __construct(Connection $connection)
@@ -34,7 +31,7 @@ class Fetcher
         'consent_personal_data',
         'education_id',
         'operator_id',
-        'scoring'
+        'scoring',
     ])
         ->from('clients')
         ->where('id = :id')
@@ -44,11 +41,10 @@ class Fetcher
         /**
          * @var array{id: int, first_name: string, last_name: string, phone: string, email: string, consent_personal_data: bool, education_id: int, operator_id: int, scoring: int}|false $row
          */
-        $row =  $qb->fetchAssociative();
-        if ($row === false) {
+        $row = $qb->fetchAssociative();
+        if (false === $row) {
             return null;
         }
-
 
         return new ClientDetailView(
             id: $row['id'],
@@ -56,11 +52,10 @@ class Fetcher
             last_name: $row['last_name'],
             phone: $row['phone'],
             email: $row['email'],
-            consent_personal_data: (bool)$row['consent_personal_data'],
+            consent_personal_data: (bool) $row['consent_personal_data'],
             education_id: $row['education_id'],
             operator_id: $row['operator_id'],
             scoring: $row['scoring']
-
         );
     }
 }

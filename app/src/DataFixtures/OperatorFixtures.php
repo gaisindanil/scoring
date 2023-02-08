@@ -15,7 +15,6 @@ final class OperatorFixtures extends Fixture implements FixtureGroupInterface
 {
     private OperatorRepositoryInterface $repository;
 
-
     public function __construct(OperatorRepositoryInterface $repository)
     {
         $this->repository = $repository;
@@ -52,7 +51,6 @@ final class OperatorFixtures extends Fixture implements FixtureGroupInterface
         $this->repository->add($operator);
 
         $manager->flush();
-
     }
 
     public static function getGroups(): array

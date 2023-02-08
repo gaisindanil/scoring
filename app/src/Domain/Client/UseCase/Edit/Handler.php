@@ -12,10 +12,8 @@ use App\Domain\Client\Entity\Operator\OperatorRepositoryInterface;
 use App\Domain\Client\Services\ScoringServices;
 use App\Domain\Flusher;
 
-
 class Handler
 {
-
     private Flusher $flusher;
     private ClientRepositoryInterface $clientRepository;
     private EducationRepositoryInterface $educationRepository;
@@ -28,8 +26,7 @@ class Handler
         EducationRepositoryInterface $educationRepository,
         OperatorRepositoryInterface $operatorRepository,
         ScoringServices $scoringServices
-    )
-    {
+    ) {
         $this->flusher = $flusher;
         $this->clientRepository = $clientRepository;
         $this->educationRepository = $educationRepository;
@@ -37,13 +34,12 @@ class Handler
         $this->scoringServices = $scoringServices;
     }
 
-    public function handle(Command $command): void{
+    public function handle(Command $command): void
+    {
         $client = $this->clientRepository->get($command->id);
 
         $operator = $this->operatorRepository->get($command->operator);
         $education = $this->educationRepository->get($command->education);
-
-
 
         $client->edit(
             $command->first_name,
@@ -55,12 +51,8 @@ class Handler
             $education
         );
 
-
         $client->saveScoring($this->scoringServices->calculation($client));
 
-
         $this->flusher->flush();
-
-
     }
 }

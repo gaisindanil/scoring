@@ -6,5 +6,4 @@ namespace App\Domain\Client\Query\FindAll;
 
 class Query
 {
-
 }

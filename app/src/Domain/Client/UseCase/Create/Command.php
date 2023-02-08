@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Client\UseCase\Create;
 
-
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Command
@@ -28,5 +27,4 @@ class Command
     public int $education;
 
     public bool $consent_personal_data = false;
-
 }

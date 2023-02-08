@@ -32,7 +32,7 @@ final class EducationRepository implements EducationRepositoryInterface
         if (!$user instanceof Education) {
             throw new EntityNotFoundException('Education is not found.');
         }
+
         return $user;
     }
-
 }

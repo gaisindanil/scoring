@@ -6,5 +6,4 @@ namespace App\Domain\Client\Query\Operator\Common;
 
 class Query
 {
-
 }

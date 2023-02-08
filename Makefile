@@ -27,3 +27,6 @@ app-client-scoring:
 
 unit-test:
 	docker-compose run --rm backend_php_cli php bin/phpunit
+
+lint-fix:
+	docker-compose run --rm backend_php_cli vendor/bin/php-cs-fixer fix --diff

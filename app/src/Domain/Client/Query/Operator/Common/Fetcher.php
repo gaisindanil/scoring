@@ -29,7 +29,6 @@ class Fetcher
             ->from('operators')
             ->orderBy('id', 'DESC');
 
-
         $qb->executeQuery();
 
         return $qb->fetchAllKeyValue();

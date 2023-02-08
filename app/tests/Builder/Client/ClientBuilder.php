@@ -24,13 +24,13 @@ class ClientBuilder
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
-        $this->phone = "88005553535";
+        $this->phone = '88005553535';
     }
 
     public function withEmail(Email $email = null): ClientBuilder
     {
         $clone = clone $this;
-        $clone->email = $email ?? new Email("test@yandex.ru");
+        $clone->email = $email ?? new Email('test@yandex.ru');
 
         return $clone;
     }
@@ -46,7 +46,7 @@ class ClientBuilder
     public function withEducation(Education $education = null): ClientBuilder
     {
         $clone = clone $this;
-        $clone->education = $education ?? new Education("Среднее", Constant::average(), 5);
+        $clone->education = $education ?? new Education('Среднее', Constant::average(), 5);
 
         return $clone;
     }
@@ -54,11 +54,10 @@ class ClientBuilder
     public function withOperator(Operator $operator = null): ClientBuilder
     {
         $clone = clone $this;
-        $clone->operator = $operator ?? new Operator("Мегафон", \App\Domain\Client\Entity\Operator\Constant::megafon(), 5);
+        $clone->operator = $operator ?? new Operator('Мегафон', \App\Domain\Client\Entity\Operator\Constant::megafon(), 5);
 
         return $clone;
     }
-
 
     public function build(): Client
     {

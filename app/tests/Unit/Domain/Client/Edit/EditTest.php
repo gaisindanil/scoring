@@ -13,8 +13,9 @@ use PHPUnit\Framework\TestCase;
 
 class EditTest extends TestCase
 {
-    public function testSaveScoring(){
-        $client = (new ClientBuilder("Иван", "Иванович"))
+    public function testSaveScoring()
+    {
+        $client = (new ClientBuilder('Иван', 'Иванович'))
             ->withEmail()
             ->withConsentPersonalData()
             ->withEducation()
@@ -23,11 +24,11 @@ class EditTest extends TestCase
 
         $client->saveScoring(5);
         Assert::assertIsNumeric($client->getScoring());
-
     }
 
-    public function testEdit(){
-        $client = (new ClientBuilder("Иван", "Иванович"))
+    public function testEdit()
+    {
+        $client = (new ClientBuilder('Иван', 'Иванович'))
             ->withEmail()
             ->withConsentPersonalData()
             ->withEducation()
@@ -35,18 +36,18 @@ class EditTest extends TestCase
             ->build();
 
         $client->edit(
-            $firstName = "Иван",
-            $lastName = "Иванов",
-            $email = new Email("zell12345@yandex.ru"),
+            $firstName = 'Иван',
+            $lastName = 'Иванов',
+            $email = new Email('zell12345@yandex.ru'),
             $operator = new Operator(
-                "Мегафон",
+                'Мегафон',
                 \App\Domain\Client\Entity\Operator\Constant::megafon(),
                 5
             ),
-            $phone = "88005553535",
+            $phone = '88005553535',
             $consentPersonalData = new ConsentPersonalData(true),
             $education = new Education(
-                "Среднее",
+                'Среднее',
                 Constant::average(),
                 5
             ),
@@ -56,5 +57,4 @@ class EditTest extends TestCase
         Assert::assertEquals($client->getOperator(), $operator);
         Assert::assertEquals($client->getEducation(), $education);
     }
-
 }

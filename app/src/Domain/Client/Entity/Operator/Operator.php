@@ -33,11 +33,6 @@ class Operator
     #[ORM\Column(type: 'integer')]
     private int $grade;
 
-    /**
-     * @param string $name
-     * @param Constant $constant
-     * @param int $grade
-     */
     public function __construct(string $name, Constant $constant, int $grade)
     {
         $this->name = $name;
@@ -46,13 +41,8 @@ class Operator
         $this->client = new ArrayCollection();
     }
 
-    /**
-     * @return int
-     */
     public function getGrade(): int
     {
         return $this->grade;
     }
-
-
 }

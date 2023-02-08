@@ -32,6 +32,7 @@ final class ClientRepository implements ClientRepositoryInterface
         if (!$user instanceof Client) {
             throw new EntityNotFoundException('Client is not found.');
         }
+
         return $user;
     }
 

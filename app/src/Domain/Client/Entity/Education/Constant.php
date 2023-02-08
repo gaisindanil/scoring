@@ -12,14 +12,13 @@ final class Constant
     private const SPECIAL = 'SPECIAL';
     private const HIGHER = 'HIGHER';
 
-
     private string $name;
 
     /** @var array|string[] */
     private static array $names = [
         self::AVERAGE => 'Среднее',
         self::SPECIAL => 'Спциальное',
-        self::HIGHER => 'Высшнее'
+        self::HIGHER => 'Высшнее',
     ];
 
     public function __construct(string $name)
@@ -27,7 +26,7 @@ final class Constant
         Assert::oneOf($name, [
             self::AVERAGE,
             self::SPECIAL,
-            self::HIGHER
+            self::HIGHER,
         ]);
         $this->name = $name;
     }
@@ -54,9 +53,8 @@ final class Constant
 
     public function isAverage(): bool
     {
-        return $this->name === self::AVERAGE;
+        return self::AVERAGE === $this->name;
     }
-
 
     public function getName(): string
     {
@@ -65,7 +63,7 @@ final class Constant
 
     public function getLocalizedName(): string
     {
-        return (string)self::$names[$this->name];
+        return (string) self::$names[$this->name];
     }
 
     public static function getNames(): array

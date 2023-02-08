@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Client\UseCase\Edit;
 
-
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Command
@@ -25,23 +24,13 @@ class Command
     public string $email = '';
 
     #[Assert\NotBlank]
-    public int $operator ;
+    public int $operator;
 
     #[Assert\NotBlank]
-    public int $education ;
+    public int $education;
 
     public bool $consent_personal_data = false;
 
-    /**
-     * @param int $id
-     * @param string $first_name
-     * @param string $last_name
-     * @param string $phone
-     * @param string $email
-     * @param int $operator
-     * @param int $education
-     * @param bool $consent_personal_data
-     */
     public function __construct(int $id, string $first_name, string $last_name, string $phone, string $email, int $operator, int $education, bool $consent_personal_data)
     {
         $this->id = $id;
@@ -53,6 +42,4 @@ class Command
         $this->education = $education;
         $this->consent_personal_data = $consent_personal_data;
     }
-
-
 }

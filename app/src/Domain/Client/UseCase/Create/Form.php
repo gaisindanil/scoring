@@ -15,7 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
 final class Form extends AbstractType
 {
     private Fetcher $fetcherOperatorCommon;
@@ -24,8 +23,7 @@ final class Form extends AbstractType
     public function __construct(
         Fetcher $fetcherOperatorCommon,
         \App\Domain\Client\Query\Education\Common\Fetcher $fetcherEducationCommon
-    )
-    {
+    ) {
         $this->fetcherOperatorCommon = $fetcherOperatorCommon;
         $this->fetcherEducationCommon = $fetcherEducationCommon;
     }
@@ -40,13 +38,12 @@ final class Form extends AbstractType
         $builder->add('phone', TextType::class);
         $builder->add('email', EmailType::class);
         $builder->add('operator', ChoiceType::class, [
-            'choices' => array_flip($operators)
+            'choices' => array_flip($operators),
         ])->add('education', ChoiceType::class, [
-            'choices' => array_flip($education)
+            'choices' => array_flip($education),
         ])->add('consent_personal_data', CheckboxType::class, [
-                'label' => 'Я даю согласие на обработку моих личных данных'
+                'label' => 'Я даю согласие на обработку моих личных данных',
         ])->add('send', SubmitType::class, ['label' => 'Отправить']);
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void

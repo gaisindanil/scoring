@@ -13,19 +13,17 @@ final class ConsentPersonalData
 
     private bool $value;
 
-
-    /** @var array|int[]  */
+    /** @var array|int[] */
     private static array $grades = [
         self::true => 4,
-        self::false => 0
+        self::false => 0,
     ];
-
 
     public function __construct(bool $value)
     {
         Assert::oneOf($value, [
             self::true,
-            self::false
+            self::false,
         ]);
         $this->value = $value;
     }
@@ -40,11 +38,8 @@ final class ConsentPersonalData
         return $this->value;
     }
 
-    /**
-     * @return int
-     */
     public function getGrade(): int
     {
-        return (int)self::$grades[$this->value];
+        return (int) self::$grades[$this->value];
     }
 }

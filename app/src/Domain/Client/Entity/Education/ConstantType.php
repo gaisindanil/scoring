@@ -18,8 +18,7 @@ final class ConstantType extends StringType
 
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Constant
     {
-        return !empty($value) ? new Constant((string)$value) : null;
-
+        return !empty($value) ? new Constant((string) $value) : null;
     }
 
     public function getName(): string

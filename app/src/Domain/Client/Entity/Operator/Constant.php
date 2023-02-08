@@ -54,9 +54,6 @@ final class Constant
         return new self(self::OTHER);
     }
 
-
-
-
     public function isEqual(self $status): bool
     {
         return $this->getName() === $status->getName();
@@ -64,9 +61,8 @@ final class Constant
 
     public function isMegafon(): bool
     {
-        return $this->name === self::MEGAFON;
+        return self::MEGAFON === $this->name;
     }
-
 
     public function getName(): string
     {
@@ -75,7 +71,7 @@ final class Constant
 
     public function getLocalizedName(): string
     {
-        return (string)self::$names[$this->name];
+        return (string) self::$names[$this->name];
     }
 
     public static function getNames(): array

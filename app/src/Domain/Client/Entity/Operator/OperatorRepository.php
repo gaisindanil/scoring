@@ -32,7 +32,7 @@ final class OperatorRepository implements OperatorRepositoryInterface
         if (!$user instanceof Operator) {
             throw new EntityNotFoundException('Operator is not found.');
         }
+
         return $user;
     }
-
 }

@@ -18,7 +18,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ScoringCommand extends Command
 {
-
     private Flusher $flusher;
     private ClientRepositoryInterface $clientRepository;
     private ScoringServices $scoringServices;
@@ -27,7 +26,6 @@ final class ScoringCommand extends Command
         Flusher $flusher,
         ClientRepositoryInterface $clientRepository,
         ScoringServices $scoringServices
-
     ) {
         $this->flusher = $flusher;
         $this->clientRepository = $clientRepository;
@@ -43,28 +41,26 @@ final class ScoringCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         try {
-        if ($id = $input->getArgument('id') !== null) {
-            $findAllClients = $this->clientRepository->get($id);
-        } else {
-            $findAllClients = $this->clientRepository->all();
-        }
+            if ($id = null !== $input->getArgument('id')) {
+                $findAllClients = $this->clientRepository->get($id);
+            } else {
+                $findAllClients = $this->clientRepository->all();
+            }
 
-        /** @var Client $client */
-        foreach ($findAllClients as $client) {
-            $scope = $this->scoringServices->calculation($client);
-            $output->writeln($client->getFirstName() . " " . $client->getLastName() . " - оценка: " . $scope);
-            $client->saveScoring($scope);
-        }
+            /** @var Client $client */
+            foreach ($findAllClients as $client) {
+                $scope = $this->scoringServices->calculation($client);
+                $output->writeln($client->getFirstName().' '.$client->getLastName().' - оценка: '.$scope);
+                $client->saveScoring($scope);
+            }
 
-        $this->flusher->flush();
+            $this->flusher->flush();
 
             return Command::SUCCESS;
-        }catch (\Exception $exception){
-
+        } catch (\Exception $exception) {
             $output->writeln($exception->getMessage());
+
             return Command::FAILURE;
         }
-
-
     }
 }
