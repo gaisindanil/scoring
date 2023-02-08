@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block body %}
-
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path("client.list") }}">Клиенты</a></li>
+        </ol>
+    </nav>
     {{ form_start(form) }}
 
     <div class="mb-3">
