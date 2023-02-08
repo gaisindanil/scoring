@@ -97,6 +97,14 @@ class Client
 
 
     /**
+     * @return int
+     */
+    public function getScoring(): int
+    {
+        return $this->scoring;
+    }
+
+    /**
      * @return Education
      */
     public function getEducation(): Education
