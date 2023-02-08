@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Client\UseCase\Edit;
 
-use App\Domain\Client\Entity\Education;
+use App\Domain\Client\Entity\Education\Education;
 use App\Domain\Client\Entity\Operator;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

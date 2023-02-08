@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Client\Entity;
+namespace App\Domain\Client\Entity\Education;
 
 use Webmozart\Assert\Assert;
 
-final class Education
+final class Constant
 {
     private const AVERAGE = 'AVERAGE';
     private const SPECIAL = 'SPECIAL';
@@ -35,6 +35,16 @@ final class Education
     public static function average(): self
     {
         return new self(self::AVERAGE);
+    }
+
+    public static function special(): self
+    {
+        return new self(self::SPECIAL);
+    }
+
+    public static function higher(): self
+    {
+        return new self(self::HIGHER);
     }
 
     public function isEqual(self $status): bool

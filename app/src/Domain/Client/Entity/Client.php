@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 namespace App\Domain\Client\Entity;
+use App\Domain\Client\Entity\Education\Education;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity()]
@@ -35,8 +38,10 @@ class Client
     #[ORM\Column(type: 'boolean')]
     private bool $consentPersonalData;
 
-    #[ORM\Column(type: 'user_education_type')]
+    #[ORM\ManyToOne(targetEntity: Education::class)]
+    #[ORM\JoinColumn(name: 'client_id', referencedColumnName: 'id')]
     private Education $education;
+
 
     /**
      * @param string $first_name

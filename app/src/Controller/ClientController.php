@@ -20,7 +20,7 @@ class ClientController extends AbstractController
 {
     private const PER_PAGE = 5;
 
-    #[Route("/create", name: "client.create")]
+    #[Route("/", name: "client.create")]
     public function create(Request $request, Handler $handler): Response{
 
         $command = new Command();

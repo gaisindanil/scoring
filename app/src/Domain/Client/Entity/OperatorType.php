@@ -11,7 +11,7 @@ final class OperatorType extends StringType
 {
     public const NAME = 'user_operator_type';
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): string
+    public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         return $value instanceof Operator ? $value->getName() : $value;
     }

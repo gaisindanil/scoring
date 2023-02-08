@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Domain\Client\UseCase\Edit;
 
-use App\Domain\Client\Entity\Client;
 use App\Domain\Client\Entity\ClientRepositoryInterface;
-use App\Domain\Flusher;
-use App\Domain\Client\Entity\Education;
+use App\Domain\Client\Entity\Education\Education;
 use App\Domain\Client\Entity\Email;
 use App\Domain\Client\Entity\Operator;
+use App\Domain\Flusher;
 
 
 class Handler

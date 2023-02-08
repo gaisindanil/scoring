@@ -8,7 +8,7 @@ doctrine:
         types:
             user_email_type: '\App\Domain\Client\Entity\EmailType'
             user_operator_type: '\App\Domain\Client\Entity\OperatorType'
-            user_education_type: '\App\Domain\Client\Entity\EducationType'
+            education_type: '\App\Domain\Client\Entity\Education\ConstantType'
 
 
 
