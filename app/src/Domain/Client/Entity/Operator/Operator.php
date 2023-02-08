@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity()]
 #[ORM\Table(name: 'operators')]
-final class Operator
+class Operator
 {
     /**
      * @psalm-suppress PropertyNotSetInConstructor

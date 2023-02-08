@@ -28,11 +28,9 @@ class Fetcher
                 'id',
                 'first_name',
                 'last_name',
-                'operator',
                 'phone',
                 'email',
                 'consent_personal_data',
-                'education'
             ])
             ->from('clients');
 

@@ -56,8 +56,8 @@ class ClientController extends AbstractController
             $findClient->last_name,
             $findClient->phone,
             $findClient->email,
-            $findClient->operator,
-            $findClient->education,
+            $findClient->operator_id,
+            $findClient->education_id,
             (bool)$findClient->consent_personal_data,
         );
 

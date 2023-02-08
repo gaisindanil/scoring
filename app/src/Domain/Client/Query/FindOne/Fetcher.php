@@ -29,11 +29,12 @@ class Fetcher
         'id',
         'first_name',
         'last_name',
-        'operator',
         'phone',
         'email',
         'consent_personal_data',
-        'education'
+        'education_id',
+        'operator_id',
+        'scoring'
     ])
         ->from('clients')
         ->where('id = :id')
@@ -41,7 +42,7 @@ class Fetcher
         ->executeQuery();
 
         /**
-         * @var array{id: int, first_name: string, last_name: string, operator: string, phone: string, email: string, consent_personal_data: int, education: string}|false $row
+         * @var array{id: int, first_name: string, last_name: string, phone: string, email: string, consent_personal_data: int, education_id: int, operator_id: int, scoring: int}|false $row
          */
         $row =  $qb->fetchAssociative();
         if ($row === false) {
@@ -52,11 +53,12 @@ class Fetcher
             id: $row['id'],
             first_name: $row['first_name'],
             last_name: $row['last_name'],
-            operator: $row['operator'],
             phone: $row['phone'],
             email: $row['email'],
             consent_personal_data: $row['consent_personal_data'],
-            education: $row['education'],
+            education_id: $row['education_id'],
+            operator_id: $row['operator_id'],
+            scoring: $row['scoring']
 
         );
     }
