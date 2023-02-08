@@ -31,9 +31,6 @@ class Client
     #[ORM\Column(type: 'string')]
     private string $phone;
 
-    #[ORM\Column(type: 'boolean')]
-    private bool $consentPersonalData;
-
     #[ORM\ManyToOne(targetEntity: Operator::class)]
     #[ORM\JoinColumn(name: 'operator_id', referencedColumnName: 'id')]
     private Operator $operator;
@@ -42,6 +39,11 @@ class Client
     #[ORM\JoinColumn(name: 'client_id', referencedColumnName: 'id')]
     private Education $education;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $consentPersonalData;
+
+    #[ORM\Column(type: 'integer')]
+    private int $scoring;
 
     /**
      * @param string $first_name
@@ -85,4 +87,35 @@ class Client
         $this->education = $education;
     }
 
+    /**
+     * @param int $scoring
+     */
+    public function saveScoring(int $scoring): void
+    {
+        $this->scoring = $scoring;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isConsentPersonalData(): bool
+    {
+        return $this->consentPersonalData;
+    }
+
+    /**
+     * @return Education
+     */
+    public function getEducation(): Education
+    {
+        return $this->education;
+    }
+
+    /**
+     * @return Operator
+     */
+    public function getOperator(): Operator
+    {
+        return $this->operator;
+    }
 }

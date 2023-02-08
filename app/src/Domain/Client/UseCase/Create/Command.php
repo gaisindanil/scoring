@@ -22,10 +22,10 @@ class Command
     public string $email = '';
 
     #[Assert\NotBlank]
-    public string $operator = '';
+    public int $operator;
 
     #[Assert\NotBlank]
-    public string $education = '';
+    public int $education;
 
     public bool $consent_personal_data = false;
 

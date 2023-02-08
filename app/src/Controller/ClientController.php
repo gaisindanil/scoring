@@ -81,7 +81,7 @@ class ClientController extends AbstractController
     }
 
     #[Route("/create/{id<\d+>}/view", name: "client.view")]
-    public function view(Request $request, int $id, \App\Domain\Client\UseCase\Edit\Handler $handler, \App\Domain\Client\Query\FindOne\Fetcher $fetcher): Response{
+    public function view(Request $request, int $id, \App\Domain\Client\Query\FindOne\Fetcher $fetcher): Response{
 
         $findClient = $fetcher->one($id);
         if ($findClient === null) throw new NotFoundHttpException("404 page not found");

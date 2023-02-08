@@ -25,10 +25,10 @@ class Command
     public string $email = '';
 
     #[Assert\NotBlank]
-    public string $operator = '';
+    public int $operator ;
 
     #[Assert\NotBlank]
-    public string $education = '';
+    public int $education ;
 
     public bool $consent_personal_data = false;
 
@@ -38,11 +38,11 @@ class Command
      * @param string $last_name
      * @param string $phone
      * @param string $email
-     * @param string $operator
-     * @param string $education
+     * @param int $operator
+     * @param int $education
      * @param bool $consent_personal_data
      */
-    public function __construct(int $id, string $first_name, string $last_name, string $phone, string $email, string $operator, string $education, bool $consent_personal_data)
+    public function __construct(int $id, string $first_name, string $last_name, string $phone, string $email, int $operator, int $education, bool $consent_personal_data)
     {
         $this->id = $id;
         $this->first_name = $first_name;

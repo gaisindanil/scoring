@@ -28,4 +28,8 @@ class Email
         return $this->getValue() === $email->getValue();
     }
 
+    public function getGrade(): int{
+        return 1;
+    }
+
 }
