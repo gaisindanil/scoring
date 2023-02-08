@@ -18,20 +18,17 @@ class Handler
     private ClientRepositoryInterface $clientRepository;
     private EducationRepositoryInterface $educationRepository;
     private OperatorRepositoryInterface $operatorRepository;
-    private ScoringServices $scoringServices;
 
     public function __construct(
         Flusher $flusher,
         ClientRepositoryInterface $clientRepository,
         EducationRepositoryInterface $educationRepository,
-        OperatorRepositoryInterface $operatorRepository,
-        ScoringServices $scoringServices
+        OperatorRepositoryInterface $operatorRepository
     ) {
         $this->flusher = $flusher;
         $this->clientRepository = $clientRepository;
         $this->educationRepository = $educationRepository;
         $this->operatorRepository = $operatorRepository;
-        $this->scoringServices = $scoringServices;
     }
 
     public function handle(Command $command): void
@@ -51,7 +48,8 @@ class Handler
             $education
         );
 
-        $client->saveScoring($this->scoringServices->calculation($client));
+        $scoringServices = new ScoringServices($client);
+        $client->saveScoring($scoringServices->calculation());
 
         $this->flusher->flush();
     }

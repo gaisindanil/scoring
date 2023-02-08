@@ -20,17 +20,14 @@ final class ScoringCommand extends Command
 {
     private Flusher $flusher;
     private ClientRepositoryInterface $clientRepository;
-    private ScoringServices $scoringServices;
 
     public function __construct(
         Flusher                   $flusher,
-        ClientRepositoryInterface $clientRepository,
-        ScoringServices           $scoringServices
+        ClientRepositoryInterface $clientRepository
     )
     {
         $this->flusher = $flusher;
         $this->clientRepository = $clientRepository;
-        $this->scoringServices = $scoringServices;
         parent::__construct();
     }
 
@@ -52,7 +49,8 @@ final class ScoringCommand extends Command
 
                 /** @var Client $client */
                 foreach ($findAllClients as $client) {
-                    $scope = $this->scoringServices->calculation($client);
+                    $scoringServices = new ScoringServices($client);
+                    $scope = $scoringServices->calculation();
                     $output->writeln($client->getFirstName() . ' ' . $client->getLastName() . ' - оценка: ' . $scope);
                     $client->saveScoring($scope);
                 }

@@ -21,15 +21,23 @@ class ScoringServices
         self::OTHER => 3,
     ];
 
-    public function calculation(Client $client): int
+    private Client $client;
+
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
+
+
+    public function calculation(): int
     {
         $scoring = 0;
 
-        $scoring += $client->getConsentPersonalData()->getGrade();
-        $scoring += $client->getEducation()->getGrade();
-        $scoring += $client->getOperator()->getGrade();
+        $scoring += $this->client->getConsentPersonalData()->getGrade();
+        $scoring += $this->client->getEducation()->getGrade();
+        $scoring += $this->client->getOperator()->getGrade();
 
-        $scoring += $this->getGradeEmail($client->getEmail());
+        $scoring += $this->getGradeEmail($this->client->getEmail());
 
         return $scoring;
     }

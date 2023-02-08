@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Unit\Domain\Client\Edit;
+namespace App\Tests\Unit\Domain\Entity\Client;
 
 use App\Domain\Client\Entity\ConsentPersonalData;
 use App\Domain\Client\Entity\Education\Constant;
@@ -11,7 +11,7 @@ use App\Tests\Builder\Client\ClientBuilder;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-class EditTest extends TestCase
+class ClientTest extends TestCase
 {
     public function testSaveScoring()
     {
@@ -53,8 +53,12 @@ class EditTest extends TestCase
             ),
         );
 
+        Assert::assertEquals($client->getFirstName(), $firstName);
+        Assert::assertEquals($client->getLastName(), $lastName);
         Assert::assertEquals($client->getEmail(), $email);
         Assert::assertEquals($client->getOperator(), $operator);
+        Assert::assertEquals($client->getPhone(), $phone);
+        Assert::assertEquals($client->getConsentPersonalData(), $consentPersonalData);
         Assert::assertEquals($client->getEducation(), $education);
     }
 }

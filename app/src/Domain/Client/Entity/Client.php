@@ -26,7 +26,7 @@ class Client
     #[ORM\Column(type: 'string')]
     private string $last_name;
 
-    #[ORM\Column(type: 'user_email_type', unique: true)]
+    #[ORM\Column(type: 'user_email_type')]
     private Email $email;
 
     #[ORM\Column(type: 'string')]
@@ -96,6 +96,11 @@ class Client
     public function getEmail(): Email
     {
         return $this->email;
+    }
+
+    public function getPhone(): string
+    {
+        return $this->phone;
     }
 
     public function getFirstName(): string

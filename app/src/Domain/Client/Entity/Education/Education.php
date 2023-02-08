@@ -45,4 +45,20 @@ class Education
     {
         return $this->grade;
     }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return Constant
+     */
+    public function getConstant(): Constant
+    {
+        return $this->constant;
+    }
 }
