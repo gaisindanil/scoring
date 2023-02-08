@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Client\Entity\Education;
+namespace App\Domain\Client\Entity\Operator;
 
 use App\Domain\Client\Entity\Client;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity()]
-#[ORM\Table(name: 'educations')]
-final class Education
+#[ORM\Table(name: 'operators')]
+final class Operator
 {
     /**
      * @psalm-suppress PropertyNotSetInConstructor
@@ -22,7 +22,7 @@ final class Education
     #[ORM\Column(type: 'string')]
     private string $name;
 
-    #[ORM\Column(type: 'client_education_type')]
+    #[ORM\Column(type: 'client_operator_type')]
     private Constant $constant;
 
     #[Orm\OneToMany(targetEntity: Client::class, mappedBy: 'client', cascade: ['persist'])]
@@ -50,5 +50,6 @@ final class Education
     {
         return $this->grade;
     }
+
 
 }

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Client\Entity\Education;
+namespace App\Domain\Client\Entity\Operator;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
 
 final class ConstantType extends StringType
 {
-    public const NAME = 'client_education_type';
+    public const NAME = 'client_operator_type';
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {

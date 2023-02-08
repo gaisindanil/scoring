@@ -26,19 +26,23 @@ final class EducationFixtures extends Fixture implements FixtureGroupInterface
     {
         $education = new Education(
             'Среднее образование',
-            Constant::average()
+            Constant::average(),
+            5
+
         );
         $this->repository->add($education);
 
         $education = new Education(
             'Специальное образование',
-            Constant::special()
+            Constant::special(),
+            10
         );
         $this->repository->add($education);
 
         $education = new Education(
             'Высшее образование',
-            Constant::higher()
+            Constant::higher(),
+            15
         );
         $this->repository->add($education);
         $manager->flush();

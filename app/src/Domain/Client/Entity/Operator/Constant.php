@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Client\Entity;
+namespace App\Domain\Client\Entity\Operator;
 
 use Webmozart\Assert\Assert;
 
-final class Operator
+final class Constant
 {
     private const MEGAFON = 'MEGAFON';
     private const BEELINE = 'BEELINE';
@@ -38,6 +38,24 @@ final class Operator
     {
         return new self(self::MEGAFON);
     }
+
+    public static function BEELINE(): self
+    {
+        return new self(self::BEELINE);
+    }
+
+    public static function mtc(): self
+    {
+        return new self(self::MTC);
+    }
+
+    public static function other(): self
+    {
+        return new self(self::OTHER);
+    }
+
+
+
 
     public function isEqual(self $status): bool
     {
