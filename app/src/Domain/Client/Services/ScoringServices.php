@@ -9,12 +9,16 @@ use App\Domain\Client\Entity\Email;
 
 class ScoringServices
 {
+    private const YANDEX_RU = "yandex.ru";
+    private const GMAIL_COM = "gmail.com";
+    private const MAIL_RU = "mail.ru";
+    private const OTHER = "other";
 
     private static array $grades = [
-        'yandex.ru' => 8,
-        'gmail.com'=> 10,
-        'mail.ru' => 6,
-        'other' => 3
+        self::YANDEX_RU => 8,
+        self::GMAIL_COM => 10,
+        self::MAIL_RU => 6,
+        self::OTHER => 3
     ];
 
     public function calculation(Client $client): int
@@ -30,17 +34,18 @@ class ScoringServices
         return $scoring;
     }
 
-    private function getGradeEmail(Email $email): int{
+    private function getGradeEmail(Email $email): int
+    {
 
         $domain = explode("@", $email->getValue());
 
-        if (isset(self::$grades[$domain[1]])){
+        if (isset(self::$grades[$domain[1]])) {
             return (int)self::$grades[$domain[1]];
-        }else{
+        } else {
             $grade = (int)self::$grades['other'];
         }
 
 
-       return $grade;
+        return $grade;
     }
 }

@@ -24,3 +24,6 @@ fixtures-operator:
 
 app-client-scoring:
 	docker-compose run --rm backend_php_cli php bin/console app:client:scoring $(id)
+
+unit-test:
+	docker-compose run --rm backend_php_cli php bin/phpunit
